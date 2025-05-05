@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flappy Bird</title>
+    <link rel="stylesheet" href="./styles/style.css" />
+  </head>
+  <body>
+    <!-- PANTALLA DE INICIO -->
+    <div id="splash-screen" class="container">
+      <img src="./images/DONT’T TAKE MY BELLS!.png" width="500" alt="logo" />
+      <button id="start-btn">
+        <img src="./images/botón.png" alt="botón-start" />
+      </button>
+    </div>
+
+    <!-- PANTALLA DE JUEGO -->
+    <div id="game-screen" class="container">
+      <!-- Elementos del juego como puntuación, vidas, etc deberia ir aqui (dentro del game-screen pero fuera del game-box) -->
+      <div id="game-box">
+        <!-- Los elementos del juego serán añadidos desde JS con manipulación de DOM -->
+      </div>
+    </div>
+
+    <!-- PANTALLA FINAL -->
+    <div id="game-over-screen" class="container">
+      <img src="./images/try again logo.png" width="500" alt="logo" />
+      <button id="tryagain-btn">
+        <img src="./images/botón.png" alt="botón-restart" />
+      </button>
+    </div>
+
+    <script src="./js/main.js"></script>
+    <!--<script>
+      src = "./js/pollito.js";
+    </script>
+    <script>
+      src = "./js/tuberia.jss";
+    </script>-->
+  </body>
+</html>
