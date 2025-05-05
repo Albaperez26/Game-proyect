@@ -12,6 +12,10 @@ body {
     border-radius: 10px; 
   }
   
+  #splash-screen {
+    background-image: url(../images/fondo-principal.png);
+  }
+
   .container {
     display: flex;
     flex-direction: column;
@@ -19,20 +23,24 @@ body {
     align-items: center;
     margin: 50px;
   }
+
+ 
   
   #game-box {
     background-color: darkgray;
-    width:600px;
-    height:400px;
-  
+    width: 400px;
+    height:1000px;
+    display: flex;
     position: relative; /* permite posicionar los elementos de forma absoluta dentro del game-box */
+    
     overflow: hidden; /* previene que los elementos salgan visualmente del game-box */
     user-select: none; /* previene que los elementos del game-box sean resaltados al hacer click */
   
     /*fondo*/
-    /*background-image: url("../images/bg.png");*/
+    
     background-position: center;
     background-size: cover;
+    
   }
   
   #game-box * {

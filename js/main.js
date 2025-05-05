@@ -7,9 +7,7 @@ const startBtnNode = document.querySelector("#start-btn");
 const gameBoxNode = document.querySelector ("#gameBox");
 
 //* VARIABLES GLOBALES DEL JUEGO
-let canelaObj = null;
-let ramitaObj = null;
-let tomNookObj = null;
+
 
 //* FUNCIONES GLOBALES DEL JUEGO
 
@@ -23,6 +21,8 @@ function startGame() {
         -Ramitas
         -Tom Nook
     */
+
+    const canelaObj = new Canela();
 
 
     /*iniciamos el intervalo principal del juego*/

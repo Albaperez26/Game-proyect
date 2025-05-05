@@ -4,13 +4,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Flappy Bird</title>
+    <title>Don't take my bells!</title>
     <link rel="stylesheet" href="./styles/style.css" />
   </head>
   <body>
     <!-- PANTALLA DE INICIO -->
     <div id="splash-screen" class="container">
-      <img src="./images/DONT’T TAKE MY BELLS!.png" width="500" alt="logo" />
+      <img src="./images/DONT’T TAKE MY BELLS!.png" width="350" alt="logo" />
       <button id="start-btn">
         <img src="./images/botón.png" alt="botón-start" />
       </button>
@@ -20,6 +20,7 @@
     <div id="game-screen" class="container">
       <!-- Elementos del juego como puntuación, vidas, etc deberia ir aqui (dentro del game-screen pero fuera del game-box) -->
       <div id="game-box">
+        <img class="fondoDinamico" src="./images/fondodia.png" alt="fondo1" />
         <!-- Los elementos del juego serán añadidos desde JS con manipulación de DOM -->
       </div>
     </div>
@@ -33,11 +34,11 @@
     </div>
 
     <script src="./js/main.js"></script>
-    <!--<script>
-      src = "./js/pollito.js";
-    </script>
     <script>
+      src = "./js/canela.js";
+    </script>
+    <!-- <script>
       src = "./js/tuberia.jss";
-    </script>-->
+    </script> -->
   </body>
 </html>
