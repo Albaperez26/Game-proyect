@@ -4,10 +4,10 @@ const gameOverScreenNode = document.querySelector("#game-over-screen")
 
 const startBtnNode = document.querySelector("#start-btn");
 
-const gameBoxNode = document.querySelector ("#gameBox");
+const gameBoxNode = document.querySelector("#game-box");
 
 //* VARIABLES GLOBALES DEL JUEGO
-
+let canelaObj = null;
 
 //* FUNCIONES GLOBALES DEL JUEGO
 
@@ -18,11 +18,9 @@ function startGame() {
 
     /*añadimos los elementos del juego
         -Canela
-        -Ramitas
-        -Tom Nook
     */
 
-    const canelaObj = new Canela();
+    canelaObj = new Canela()
 
 
     /*iniciamos el intervalo principal del juego*/
@@ -35,7 +33,8 @@ function startGame() {
 }
 
 function gameLoop() { //funciona!
-    
+    canelaObj.gravityEffect();
+   
 }
 
 
@@ -45,12 +44,16 @@ startBtnNode.addEventListener("click", () => {
     startGame();
 });
 
+gameBoxNode.addEventListener("click", () => {
+    canelaObj.jump ();
+  })
+
 
 
 
 /*PLANIFICACIÓN RESTANTE
 
--mostrar fondo
+-mostrar fondo X
 -mostrar personaje (x, y, w, h, speed) 
     + jump(addeventlistener-- no puede saltar mas que el techo)
 -mostrar tom nook AUTOMATIC() (aleatorio)(x, y, w, h, speed)
