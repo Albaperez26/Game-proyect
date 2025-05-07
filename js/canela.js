@@ -8,7 +8,7 @@ class Canela  {
         
         gameBoxNode.append(this.node);
 
-        this.x = 150;
+        this.x = 50;
         this.y = 500;
         this.w = 50;
         this.h = 60;
@@ -21,21 +21,22 @@ class Canela  {
         this.node.style.top = `${this.y}px`
         this.node.style.left = `${this.x}px`
 
-        this.jumpSpeed = 10;
-        this.gravitySpeed = 1;
+        
+        this.gravitySpeed = 0.5;
+        this.jumpSpeed = 30;
        
     }
     // .todos los metodos o accione
     gravityEffect() {
-        console.log("fuerza de gravedad");
-        this.y += this.gravitySpped;
+        //console.log("fuerza de gravedad");
+        this.y += this.gravitySpeed;
         //siempre que una propiedad cambie, debemos actualizar el .style del nodo
         this.node.style.top = `${this.y}px`
     }
     
     
     jump() {
-        console.log("jumpppp");
+        //console.log("jumpppp");
         if(this.y > 0) {
            //salta dentro de la caja de juego
         this.y -= this.jumpSpeed;

@@ -31,9 +31,14 @@ function startGame() {
     /*iniciamos otros intervalos del juego*/
 
 }
-
+let count = 0;
 function gameLoop() { //funciona!
     canelaObj.gravityEffect();
+   
+    count++;
+    if(count % 60 === 0) {
+    canelaObj.jump();
+   }
    
 }
 
@@ -44,9 +49,9 @@ startBtnNode.addEventListener("click", () => {
     startGame();
 });
 
-gameBoxNode.addEventListener("click", () => {
-    canelaObj.jump ();
-  })
+//gameBoxNode.addEventListener("click", () => {
+  //  canelaObj.jump ();
+  //})
 
 
 
