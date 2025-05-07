@@ -22,8 +22,8 @@ class Canela  {
         this.node.style.left = `${this.x}px`
 
         
-        this.gravitySpeed = 0.5;
-        this.jumpSpeed = 30;
+        this.gravitySpeed = 1;
+        this.jumpSpeed = 40;
        
     }
     // .todos los metodos o accione
@@ -37,12 +37,25 @@ class Canela  {
     
     jump() {
         //console.log("jumpppp");
-        if(this.y > 0) {
            //salta dentro de la caja de juego
         this.y -= this.jumpSpeed;
         this.node.style.top = `${this.y}px`
+    
+
+    }
+
+    moverseDerecha() {
+        if(this.x < 350) {
+        this.x += 15;
+        this.node.style.left = `${this.x}px`
+        }
+    }
+
+    moverseIzquierda() {
+        if (this.x > 0){
+        this.x -= 15;
+        this.node.style.left = `${this.x}px`
         }
 
     }
-
-    }
+}
