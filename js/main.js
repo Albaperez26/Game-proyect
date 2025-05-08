@@ -5,11 +5,12 @@ const gameOverScreenNode = document.querySelector("#game-over-screen")
 const startBtnNode = document.querySelector("#start-btn");
 
 const gameBoxNode = document.querySelector("#game-box");
+const restartBtnNode = document.querySelector("#restartbtn");
 
 //* VARIABLES GLOBALES DEL JUEGO
 let canelaObj = null;
 let ramitaObj = null;
-
+let tomObj = null;
 let x;
 
 //* FUNCIONES GLOBALES DEL JUEGO
@@ -26,15 +27,20 @@ function startGame() {
     ramitasArr.push(ramitaObj);
 
     canelaObj = new Canela()
-    
-    for ( let i = 0; i < 40; i++) {
+    tomObj = new Tom()
+
+    for ( let i = 0; i < 30; i++) {
         generarRamitas();
+    }
+
+    for ( let i = 0; i < 10; i++) {
+        generarEnemigo();
     }
     
     /*iniciamos el intervalo principal del juego*/
-    setInterval(() => {
+    intervalId = setInterval(() => {
         gameLoop();
-    }, Math.round(1000/60))
+    }, Math.round(1000 / 60));
 
     /*iniciamos otros intervalos del juego*/
 
@@ -44,7 +50,8 @@ function startGame() {
 
 let count = 0;
 let ramitasArr = [];
-
+let tomArr = [];
+let intervalId = null;
 function gameLoop() { //funciona!
     canelaObj.gravityEffect();
    //hacemos que salte de forma automática
@@ -56,8 +63,9 @@ function gameLoop() { //funciona!
     eachRamitaobj.automaticMovement()
    });
 
-     CheckCollisionCanelaRamita() 
-
+    CheckCollisionCanelaRamita() 
+   //Enemigo
+    CheckCollisionCanelaTom();
 
 }
 
@@ -68,6 +76,14 @@ function generarRamitas() {
     let ramitaSpaceBetween = 100;
     ramitaObj = new Ramita(randomX, randomY);
     ramitasArr.push(ramitaObj);
+}
+
+function generarEnemigo() {
+    const randomX = Math.floor(Math.random() * 250) + 50; // posición horizontal aleatoria
+    const randomY = Math.floor(Math.random() * 500) + 100; // posicion vertical aleatoria
+   
+    tomObj = new Tom(randomX, randomY);
+    tomArr.push(tomObj);
 }
 
 function CheckCollisionCanelaRamita() {
@@ -86,6 +102,44 @@ function CheckCollisionCanelaRamita() {
     });
 }
 
+function CheckCollisionCanelaTom() {
+    tomArr.forEach((eachTomObj) => {
+        if (
+            canelaObj.x < eachTomObj.x + eachTomObj.w &&
+            canelaObj.x + canelaObj.w > eachTomObj.x &&
+            canelaObj.y < eachTomObj.y + eachTomObj.h &&
+            canelaObj.y + canelaObj.h > eachTomObj.y
+          ) {
+            // Collision detected!
+            
+            gameOver();
+           
+          }
+          
+    });
+}
+
+function gameOver() {
+    clearInterval(intervalId);
+    gameScreenNode.style.display = "none";
+    gameOverScreenNode.style.display = "flex";
+
+}
+
+function restartGame() {
+    
+    gameOverScreenNode.style.display = "none";
+    ramitasArr = [];
+    tomArr = [];
+    //quitamos todo lo del juego
+    canelaObj = null;
+    ramitaObj = null;
+    tomObj = null;
+    count = 0;
+    gameBoxNode.innerHTML = "";
+    startGame();
+
+}
 
 
 /* EVENT LISTENERS*/
@@ -105,11 +159,11 @@ document.addEventListener("keydown",(e) => {
        // x = x+100;
         canelaObj.moverseDerecha();
     }
-
-
-   // canelaObj.style = x + "px";
 });
 
+restartBtnNode.addEventListener("click", () => {
+    restartGame();
+});
 
 
 

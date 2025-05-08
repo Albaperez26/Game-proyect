@@ -3,7 +3,7 @@ class Ramita {
     constructor(x, y) {
 
         this.node = document.createElement("img")
-        this.node.src = "./images/ramita.png"
+        this.node.src = "./images/ramapng.png"
 
         gameBoxNode.append(this.node);
 
@@ -28,7 +28,7 @@ class Ramita {
     }
 
     automaticMovement(){
-        
+
         
     }
 

@@ -5,15 +5,25 @@ body {
   
   #start-btn {
     background-color: green;
-    color: white;
     padding: 20px;
-    font-size: 20px;
     margin-top: 40px;
-    border-radius: 10px; 
+    border-radius: 20px; 
+    display: flex;
+    
+    
+  }
+
+  #startbtn {
+    display:flex;
+    size: cover;
+   
   }
   
   #splash-screen {
     background-image: url(../images/fondo-principal.png);
+    background-position: center;
+    background-size:cover;
+   
   }
 
   .container {
@@ -29,7 +39,7 @@ body {
   #game-box {
     background-color: darkgray;
     width: 400px;
-    height:600px;
+    height: 600px;
     display: flex;
     position: relative; /* permite posicionar los elementos de forma absoluta dentro del game-box */
     
@@ -51,4 +61,22 @@ body {
   #game-screen, #game-over-screen {
     display: none;
   }
+
+  #game-over-screen{
+    background-image: url("../images/fondo-final.png");
+    background-position: center;
+    background-size: 100%;
+  }
+
+  #tryagain-btn {
+    background-color: green;
+    padding: 20px;
+    margin-top: 40px;
+    border-radius: 20px; 
+    display: flex;
+  }
   
+  #restartbtn {
+    display:flex;
+    size: cover;
+  }
