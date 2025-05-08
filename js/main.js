@@ -33,7 +33,7 @@ function startGame() {
         generarRamitas();
     }
 
-    for ( let i = 0; i < 10; i++) {
+    for ( let i = 0; i < 5; i++) {
         generarEnemigo();
     }
     
@@ -95,7 +95,7 @@ function CheckCollisionCanelaRamita() {
             canelaObj.y + canelaObj.h > eachRamitaobj.y
           ) {
             // Collision detected!
-            console.log("canela ha chocado!")
+            //console.log("canela ha chocado!")
             canelaObj.jump()
           }
           
@@ -163,38 +163,4 @@ document.addEventListener("keydown",(e) => {
 
 restartBtnNode.addEventListener("click", () => {
     restartGame();
-});
-
-
-
-
-
-
-
-/*PLANIFICACIÓN RESTANTE
-
--mostrar fondo X
--mostrar personaje (x, y, w, h, speed) 
-    + jump(addeventlistener-- no puede saltar mas que el techo)
--mostrar tom nook AUTOMATIC() (aleatorio)(x, y, w, h, speed)
--mostrar ramitas AUTOMATIC() aleatorio(x, y, w, h)-----con opcion a desplazarse 
--mostrar bayas AUTOMATIC() 
-
--spawn(ramas y tom nook aparezca y desaparezca)
--colision canela y tom nook
--colision canela y suelo
-    ---GameOver()
-
--Score
--Reiniciar
-
-    MUY EXTRA:
-    -Cambio de fondo animado(en vertical)
-    -Poder lanzar fosiles 
-    2
-
-
-
-
-
-*/ 
+})
