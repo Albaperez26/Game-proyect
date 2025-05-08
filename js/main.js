@@ -13,6 +13,8 @@ let ramitaObj = null;
 let tomObj = null;
 let x;
 
+let puntuacion = 0;
+
 //* FUNCIONES GLOBALES DEL JUEGO
 
 function startGame() {
@@ -22,6 +24,7 @@ function startGame() {
 
     /*añadimos los elementos del juego
         -Canela
+        -Ramita donde cae canela
     */
     ramitaObj = new Ramita(50, 500);
     ramitasArr.push(ramitaObj);
@@ -52,10 +55,13 @@ let count = 0;
 let ramitasArr = [];
 let tomArr = [];
 let intervalId = null;
+
+
 function gameLoop() { //funciona!
     canelaObj.gravityEffect();
    //hacemos que salte de forma automática
-    count++;
+    
+
 
    
    //ramitas
@@ -66,7 +72,8 @@ function gameLoop() { //funciona!
     CheckCollisionCanelaRamita() 
    //Enemigo
     CheckCollisionCanelaTom();
-
+   // Bayas
+    CheckCollisionCanelaBaya();
 }
 
 function generarRamitas() {
@@ -110,14 +117,28 @@ function CheckCollisionCanelaTom() {
             canelaObj.y < eachTomObj.y + eachTomObj.h &&
             canelaObj.y + canelaObj.h > eachTomObj.y
           ) {
-            // Collision detected!
-            
             gameOver();
            
           }
           
     });
 }
+
+function CheckCollisionCanelaBaya() {
+    bayasArr.forEach((eachBayaObj, index) => {
+        if (
+            canelaObj.x < eachBayaObj.x + eachBayaObj.w &&
+            canelaObj.x + canelaObj.w > eachBayaObj.x &&
+            canelaObj.y < eachBayaObj.y + eachBayaObj.h &&
+            canelaObj.y + canelaObj.h > eachBayaObj.y
+        ) {
+            puntuacion += 5;
+            eachBayaObj.eliminarBaya();
+            bayasArr.splice(index, 1); // eliminar la baya del array
+        }
+    });
+}
+
 
 function gameOver() {
     clearInterval(intervalId);
@@ -135,7 +156,7 @@ function restartGame() {
     canelaObj = null;
     ramitaObj = null;
     tomObj = null;
-    count = 0;
+    puntuacion = 0;
     gameBoxNode.innerHTML = "";
     startGame();
 

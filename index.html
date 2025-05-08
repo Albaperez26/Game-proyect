@@ -11,38 +11,45 @@
     <!-- PANTALLA DE INICIO -->
     <div id="splash-screen" class="container">
       <img
-        src="./images/DONT’T TAKE MY BELLS!.png"
+        src="./images/DONT TAKE MY BELLS!.png"
         width="400"
         height="600"
         alt="logo"
+        class="splash-title"
       />
       <button id="start-btn">
         <img
           id="startbtn"
-          src="./images/botón.png"
+          src="./images/boton.png"
           width="50"
           height="50"
           alt="botón-start"
         />
       </button>
     </div>
-
-    <!-- PANTALLA DE JUEGO -->
-    <div id="game-screen" class="container">
-      <!-- Elementos del juego como puntuación, vidas, etc deberia ir aqui (dentro del game-screen pero fuera del game-box) -->
-      <div id="game-box">
-        <!-- <img class="fondoDinamico" src="./images/fondodia.png" alt="fondo1" />
+    <div id="game-container">
+      <!-- PANTALLA DE JUEGO -->
+      <div id="game-screen" class="container">
+        <!-- Elementos del juego como puntuación, vidas, etc deberia ir aqui (dentro del game-screen pero fuera del game-box) -->
+        <div id="game-box">
+          <!-- <img class="fondoDinamico" src="./images/fondodia.png" alt="fondo1" />
         Los elementos del juego serán añadidos desde JS con manipulación de DOM -->
+        </div>
+        <p id="score">Puntuación: 0</p>
       </div>
     </div>
-
     <!-- PANTALLA FINAL -->
     <div id="game-over-screen" class="container">
-      <img src="./images/try again logo.png" width="500" alt="logo" />
+      <img
+        class="try-again-img"
+        src="./images/try again logo.png"
+        width="500"
+        alt="logo"
+      />
       <button id="tryagain-btn">
         <img
           id="restartbtn"
-          src="./images/botón.png"
+          src="./images/boton.png"
           width="50"
           height="50"
           alt="botón-restart"
@@ -54,5 +61,6 @@
     <script src="./js/canela.js"></script>
     <script src="./js/ramita.js"></script>
     <script src="./js/tom.js"></script>
+    <script src="./js/bayas.js"></script>
   </body>
 </html>
