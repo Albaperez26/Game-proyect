@@ -23,13 +23,12 @@ class Ramita {
         
         this.node.style.top = `${this.y}px`
         this.node.style.left = `${this.x}px`
-
-        
+    
     }
 
-    automaticMovement(){
-
-        
+    caerRamita() {
+        this.y += 0.5;
+        this.node.style.top = `${this.y}px`
     }
 
     

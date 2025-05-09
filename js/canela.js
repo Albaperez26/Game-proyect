@@ -1,6 +1,6 @@
 class Canela  {
 
-    constructor() {
+    constructor(x, y) {
         //propiedades y caracteristicas
 
         this.node = document.createElement("img")
@@ -8,8 +8,8 @@ class Canela  {
         
         gameBoxNode.append(this.node);
 
-        this.x = 50;
-        this.y = 500;
+        this.x = x;
+        this.y = y;
         this.w = 50;
         this.h = 60;
 
@@ -22,8 +22,8 @@ class Canela  {
         this.node.style.left = `${this.x}px`
 
         
-        this.gravitySpeed = 1;
-        this.jumpSpeed = 40;
+        this.gravitySpeed = 1.5;
+        this.jumpSpeed = 100;
        
     }
     // .todos los metodos o accione

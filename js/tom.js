@@ -10,8 +10,8 @@ class Tom {
 
         this.x = x;
         this.y = y;
-        this.w = 50;
-        this.h = 60;
+        this.w = 37.5;
+        this.h = 45;
 
         this.node.style.width = `${this.w}px`;
         this.node.style.height = `${this.h}px`;
@@ -20,8 +20,11 @@ class Tom {
         this.node.style.position = "absolute" // para poder posicionarlo de forma exacta
         this.node.style.top = `${this.y}px`
         this.node.style.left = `${this.x}px`
-
-
-        
     }
+   
+    caerTom() {
+        this.y += 0.5;
+        this.node.style.top = `${this.y}px`
+    }
+
 }
