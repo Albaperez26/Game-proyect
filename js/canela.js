@@ -1,8 +1,6 @@
 class Canela  {
 
     constructor(x, y) {
-        //propiedades y caracteristicas
-
         this.node = document.createElement("img")
         this.node.src = "./images/canela.png";
         
@@ -17,7 +15,7 @@ class Canela  {
         this.node.style.height = `${this.h}px`;
 
         //definimos posiciones iniciales
-        this.node.style.position = "absolute" // para poder posicionarlo de forma exacta
+        this.node.style.position = "absolute" // posiciona de forma exacta
         this.node.style.top = `${this.y}px`
         this.node.style.left = `${this.x}px`
 
@@ -26,19 +24,15 @@ class Canela  {
         this.jumpSpeed = 100;
        
     }
-    // .todos los metodos o accione
-    gravityEffect() {
-        //console.log("fuerza de gravedad");
+    
+    gravityEffect() { //actualiza la gravedad del personaje en caida
         this.y += this.gravitySpeed;
-        //siempre que una propiedad cambie, debemos actualizar el .style del nodo
         this.node.style.top = `${this.y}px`
     }
     
     
     jump() {
-        //console.log("jumpppp");
-           //salta dentro de la caja de juego
-        this.y -= this.jumpSpeed;
+        this.y -= this.jumpSpeed; //salta dentro de la caja de juego
         this.node.style.top = `${this.y}px`
     
 

@@ -16,6 +16,7 @@ let x;
 let pantallay = 0;
 let puntuacion = 0;
 
+//variables de la música y volumen
 let musicaFondo = new Audio("./sounds/animalcrossing.mp3");
 musicaFondo.loop = true;
 musicaFondo.volume = 0.1;
@@ -29,7 +30,7 @@ musicaGameOver.volume = 0.1;
 
 function startGame() {
 
-    // iniciamos la musica de fondo
+    // iniciamos la musica de fondo y pausamos la de gameover
     musicaFondo.currentTime = 0;
     musicaFondo.play();
     musicaGameOver.pause();
@@ -42,17 +43,16 @@ function startGame() {
         -Canela
         -Ramita donde cae canela
     */
-    ramitaObj = new Ramita(50, 500);
-    ramitasArr.push(ramitaObj);
 
     canelaObj = new Canela(50, 450)
+
+    ramitaObj = new Ramita(50, 500);
+    ramitasArr.push(ramitaObj);
 
     /*iniciamos el intervalo principal del juego*/
     intervalId = setInterval(() => {
         gameLoop();
     }, Math.round(1000 / 60));
-
-    /*iniciamos otros intervalos del juego*/
 
 }
 
@@ -62,26 +62,22 @@ let bayasArr = [];
 let intervalId = null;
 
 
-function gameLoop() { //funciona!
-    canelaObj.gravityEffect();
-   //hacemos que salte de forma automática
+function gameLoop() { 
+    canelaObj.gravityEffect(); //hace que canela salte de forma automática
+   
     // Caer ramitas, toms y bayas
     caerRamitas();
     caerToms();
     caerBayas();
 
-    //actualizamos la puntuacion
-    actualizarPuntuacion();
-
-    CheckCollisionCanelaRamita()
-    // Enemigo
-    CheckCollisionCanelaTom();
-    // Bayas
-    CheckCollisionCanelaBaya();
+    actualizarPuntuacion();//actualizamos la puntuacion
+    CheckCollisionCanelaRamita()//chequeamos si choca con la rama para poder saltar
+    CheckCollisionCanelaTom(); // Enemigo
+    CheckCollisionCanelaBaya();// Bayas
 
     generarRamitas();
 
-    comprobarSiCanelaMuere();
+    comprobarSiCanelaMuere(); //si sale de la pantalla por debajo, gameover
 }
 
 function caerRamitas() {
@@ -145,7 +141,7 @@ function generarRamitas() {
     }
 }
 
-function comprobarSiExisteRamita(x, y, margen) {
+function comprobarSiExisteRamita(x, y, margen) { //hace que las ramitas no se solapen entre ellas
     for (let i = 0; i < ramitasArr.length; i++) {
         if (
             x < ramitasArr[i].x + ramitasArr[i].w + margen &&
@@ -159,7 +155,7 @@ function comprobarSiExisteRamita(x, y, margen) {
     return false;
 }
 
-function comprobarSiExisteTom(x, y, margen) {
+function comprobarSiExisteTom(x, y, margen) { // hace que no salgan enemeigos superpuestos o muy juntos
     for (let i = 0; i < tomArr.length; i++) {
         if (
             x < tomArr[i].x + tomArr[i].w + margen &&
@@ -173,14 +169,6 @@ function comprobarSiExisteTom(x, y, margen) {
     return false;
 }
 
-/*function generarEnemigo() {
-    const randomX = Math.floor(Math.random() * 250) + 50; // posición horizontal aleatoria
-    const randomY = Math.floor(Math.random() * 500) + 100; // posicion vertical aleatoria
-   
-    tomObj = new Tom(randomX, randomY);
-    tomArr.push(tomObj);
-}*/
-
 function CheckCollisionCanelaRamita() {
     ramitasArr.forEach((eachRamitaobj) => {
         if (
@@ -189,7 +177,6 @@ function CheckCollisionCanelaRamita() {
             (canelaObj.y + 59)  < eachRamitaobj.y + eachRamitaobj.h &&
             canelaObj.y + canelaObj.h > eachRamitaobj.y
           ) {
-            //console.log("canela ha chocado!")
             canelaObj.jump()
           }
           
@@ -219,7 +206,7 @@ function CheckCollisionCanelaBaya() {
         ) {
             puntuacion += 5;
             eachBayaObj.eliminarBaya();
-            bayasArr.splice(index, 1); // eliminar la baya del array
+            bayasArr.splice(index, 1); // elimina la baya del array y de la pantalla
         }
     });
 }
@@ -240,23 +227,21 @@ function gameOver() {
 
 function restartGame() {
     
-    gameOverScreenNode.style.display = "none";
+    gameOverScreenNode.style.display = "none";//quitamos todo lo del juego para que haya un restart
     ramitasArr = [];
     tomArr = [];
     bayasArr = [];
-    //quitamos todo lo del juego
     canelaObj = null;
     ramitaObj = null;
     tomObj = null;
     gameBoxNode.innerHTML = "";
     puntuacion = 0;
     
-    startGame();
+    startGame(); //iniciamos el juego de nuevo.
 
 }
 
-
-/* EVENT LISTENERS*/
+//eventlisteners
 startBtnNode.addEventListener("click", () => {
     startGame();
 });

@@ -17,7 +17,7 @@ class Bayas {
         this.node.style.height = `${this.h}px`;
 
         this.node.classList.add("baya");
-        this.node.style.position = "absolute" // para poder posicionarlo de forma exacta
+        this.node.style.position = "absolute" // posiciona de forma exacta
     }
 
     caerBaya() {
@@ -25,8 +25,8 @@ class Bayas {
         this.node.style.top = `${this.y}px`
     }
 
-    eliminarBaya() {
+    eliminarBaya() { //cuando colisiona con el personaje, se elimina
         this.node.remove();
-        this.sonido.play();
+        this.sonido.play(); //inicio efecto sonoro cuando colisiona con el personaje
     }
 }

@@ -1,8 +1,6 @@
 class Tom {
 
     constructor(x, y) {
-        //propiedades y caracteristicas
-
         this.node = document.createElement("img")
         this.node.src = "./images/tomnook.png";
         
@@ -16,7 +14,8 @@ class Tom {
         this.node.style.width = `${this.w}px`;
         this.node.style.height = `${this.h}px`;
         this.node.classList.add("tom");
-        //definimos posiciones iniciales
+        
+        
         this.node.style.position = "absolute" // para poder posicionarlo de forma exacta
         this.node.style.top = `${this.y}px`
         this.node.style.left = `${this.x}px`
@@ -26,5 +25,4 @@ class Tom {
         this.y += 0.5;
         this.node.style.top = `${this.y}px`
     }
-
 }

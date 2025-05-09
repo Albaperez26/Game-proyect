@@ -19,7 +19,7 @@ class Ramita {
         this.node.style.height = `${this.h}px`;
        
         this.node.classList.add("ramita");
-        this.node.style.position = "absolute" // para poder posicionarlo de forma exacta
+        this.node.style.position = "absolute" // posiciona de forma exacta
         
         this.node.style.top = `${this.y}px`
         this.node.style.left = `${this.x}px`
@@ -28,7 +28,7 @@ class Ramita {
 
     caerRamita() {
         this.y += 0.5;
-        this.node.style.top = `${this.y}px`
+        this.node.style.top = `${this.y}px` 
     }
 
     
